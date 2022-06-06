@@ -18,7 +18,7 @@
             </div>
         </div>
     </div>
-    <!-- End Breadcrumbs -->
+    <!-- End Breadcrumbs --> 
 
     <!-- Start Blog Single -->
     <section class="blog-single section">
