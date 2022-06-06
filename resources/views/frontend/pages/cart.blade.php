@@ -8,8 +8,8 @@
 				<div class="col-12">
 					<div class="bread-inner">
 						<ul class="bread-list">
-							<li><a href="{{('home')}}">Home<i class="ti-arrow-right"></i></a></li>
-							<li class="active"><a href="">Cart</a></li>
+							<li><a href="{{('home')}}">Trang chủ<i class="ti-arrow-right"></i></a></li>
+							<li class="active"><a href="">Giỏ hàng </a></li>
 						</ul>
 					</div>
 				</div>
@@ -27,11 +27,11 @@
 					<table class="table shopping-summery">
 						<thead>
 							<tr class="main-hading">
-								<th>PRODUCT</th>
-								<th>NAME</th>
-								<th class="text-center">UNIT PRICE</th>
+								<th>Sản phẩm </th>
+								<th>Tên</th>
+								<th class="text-center">Gía</th>
 								<th class="text-center">QUANTITY</th>
-								<th class="text-center">TOTAL</th>
+								<th class="text-center">Tổng</th>
 								<th class="text-center"><i class="ti-trash remove-icon"></i></th>
 							</tr>
 						</thead>
@@ -85,7 +85,7 @@
 								@else
 										<tr>
 											<td class="text-center">
-												There are no any carts available. <a href="{{route('product-grids')}}" style="color:blue;">Continue shopping</a>
+												Sran phẩm k có sẵn <a href="{{route('product-grids')}}" style="color:blue;">Tiếp tục mua sắm</a>
 
 											</td>
 										</tr>

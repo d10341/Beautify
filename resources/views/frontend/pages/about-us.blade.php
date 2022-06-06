@@ -12,7 +12,7 @@
 					<div class="bread-inner">
 						<ul class="bread-list">
 							<li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-							<li class="active"><a href="blog-single.html">About Us</a></li>
+							<li class="active"><a href="blog-single.html">Về chúng tôi </a></li>
 						</ul>
 					</div>
 				</div>
@@ -34,7 +34,7 @@
 							<p>@foreach($settings as $data) {{$data->description}} @endforeach</p>
 							<div class="button">
 								<a href="{{route('blog')}}" class="btn">Our Blog</a>
-								<a href="{{route('contact')}}" class="btn primary">Contact Us</a>
+								<a href="{{route('contact')}}" class="btn primary">Liên hệ với chúng tôi </a>
 							</div>
 						</div>
 					</div>
@@ -60,7 +60,7 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-rocket"></i>
-						<h4>Free shiping</h4>
+						<h4>Miễn phí ship</h4>
 						<p>Orders over $100</p>
 					</div>
 					<!-- End Single Service -->
@@ -69,7 +69,7 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-reload"></i>
-						<h4>Free Return</h4>
+						<h4>Hoàn hàng</h4>
 						<p>Within 30 days returns</p>
 					</div>
 					<!-- End Single Service -->
@@ -78,7 +78,7 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-lock"></i>
-						<h4>Sucure Payment</h4>
+						<h4>Hóa đơn</h4>
 						<p>100% secure payment</p>
 					</div>
 					<!-- End Single Service -->
@@ -87,7 +87,7 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-tag"></i>
-						<h4>Best Peice</h4>
+						<h4>Giá tốt nhất</h4>
 						<p>Guaranteed price</p>
 					</div>
 					<!-- End Single Service -->
