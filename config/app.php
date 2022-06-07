@@ -235,7 +235,7 @@ return [
         // unisharp
         'Image' => Intervention\Image\Facades\Image::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
-        'PayPal' => Srmklive\PayPal\Facades\PayPal::class,
+        'PayPal' => Srmklive\PayPal\Services\PayPal::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],

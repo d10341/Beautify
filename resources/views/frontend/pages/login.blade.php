@@ -11,7 +11,7 @@
                     <div class="bread-inner">
                         <ul class="bread-list">
                             <li><a href="{{ route('home') }}">Home<i class="ti-arrow-right"></i></a></li>
-                            <li class="active"><a href="javascript:void(0);">Login</a></li>
+                            <li class="active"><a href="javascript:void(0);">Đăng nhập</a></li>
                         </ul>
                     </div>
                 </div>
@@ -26,15 +26,15 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3 col-12">
                     <div class="login-form">
-                        <h2>Login</h2>
-                        <p>Please register in order to checkout more quickly</p>
+                        <h2>Đăng kýn</h2>
+                        <p></p>
                         <!-- Form -->
                         <form class="form" method="post" action="{{ route('login.submit') }}">
                             @csrf
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label>Your Email<span>*</span></label>
+                                        <label> Email<span>*</span></label>
                                         <input type="email" name="email" placeholder="" required="required"
                                             value="{{ old('email') }}">
                                         @error('email')
@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <label>Your Password<span>*</span></label>
+                                        <label> Password<span>*</span></label>
                                         <input type="password" name="password" placeholder="" required="required"
                                             value="{{ old('password') }}">
                                         @error('password')
@@ -68,11 +68,11 @@
                                     </div>
                                     <div class="checkbox">
                                         <label class="checkbox-inline" for="2"><input name="news" id="2"
-                                                type="checkbox">Remember me</label>
+                                                type="checkbox">Ghi nhớ tôi</label>
                                     </div>
                                     @if (Route::has('password.request'))
                                         <a class="lost-pass" href="{{ route('password.reset') }}">
-                                            Lost your password?
+                                            Quên mật khẩu
                                         </a>
                                     @endif
                                 </div>

@@ -108,7 +108,7 @@
 									<form action="{{route('coupon-store')}}" method="POST">
 											@csrf
 											<input name="code" placeholder="Enter Your Coupon">
-											<button class="btn">Apply</button>
+											<button class="btn">Cập nhật ngay</button>
 										</form>
 									</div>
 									{{-- <div class="checkbox">`
@@ -140,8 +140,8 @@
 										@endif
 									</ul>
 									<div class="button5">
-										<a href="{{route('checkout')}}" class="btn">Checkout</a>
-										<a href="{{route('product-grids')}}" class="btn">Continue shopping</a>
+										<a href="{{route('checkout')}}" class="btn">Thanh toán</a>
+										<a href="{{route('product-grids')}}" class="btn">Tiếp tục mua sắm</a>
 									</div>
 								</div>
 							</div>
@@ -162,8 +162,8 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-rocket"></i>
-						<h4>Free shiping</h4>
-						<p>Orders over $100</p>
+						<h4>Miễn phí giao hàng</h4>
+						<p>Đơn hàng trên 1 triệu</p>
 					</div>
 					<!-- End Single Service -->
 				</div>
@@ -171,26 +171,26 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-reload"></i>
-						<h4>Free Return</h4>
-						<p>Within 30 days returns</p>
+						<h4>Hỗ trợ hoàn hàng</h4>
+						<p>Trong vòng 30 ngày </p>
 					</div>
 					<!-- End Single Service -->
 				</div>
 				<div class="col-lg-3 col-md-6 col-12">
 					<!-- Start Single Service -->
-					<div class="single-service">
+					<!-- <div class="single-service">
 						<i class="ti-lock"></i>
 						<h4>Sucure Payment</h4>
 						<p>100% secure payment</p>
-					</div>
+					</div> -->
 					<!-- End Single Service -->
 				</div>
 				<div class="col-lg-3 col-md-6 col-12">
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-tag"></i>
-						<h4>Best Peice</h4>
-						<p>Guaranteed price</p>
+						<h4>Gía tốt nhất</h4>
+						<p>Oử đâu rẻ chúng tô rẻ hơn</p>
 					</div>
 					<!-- End Single Service -->
 				</div>

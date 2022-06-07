@@ -89,8 +89,9 @@ Route::post('/coupon-store', 'CouponController@couponStore')->name('coupon-store
 Route::get('payment', 'PayPalController@payment')->name('payment');
 Route::get('cancel', 'PayPalController@cancel')->name('payment.cancel');
 Route::get('payment/success', 'PayPalController@success')->name('payment.success');
-
-
+Route::get('process-transaction','PayPalController@processTransaction' )->name('processTransaction');
+Route::get('success-transaction','PayPalController@successTransaction' )->name('successTransaction');
+Route::get('cancel-transaction','PayPalController@cancelTransaction')->name('cancelTransaction');
 
 // Backend section start
 

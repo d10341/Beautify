@@ -7,12 +7,12 @@
                 <div class="col-lg-8 offset-lg-2 col-12">
                     <!-- Start Newsletter Inner -->
                     <div class="inner">
-                        <h4>Newsletter</h4>
-                        <p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
+                        <h4>Thư mới</h4>
+                        <p> Đăng ký ngay để nhận ưu đãi lên đến <span>10%</span> trên tổng đơn hàng đầu tiên</p>
                         <form action="{{route('subscribe')}}" method="post" class="newsletter-inner">
                             @csrf
-                            <input name="email" placeholder="Your email address" required="" type="email">
-                            <button class="btn" type="submit">Subscribe</button>
+                            <input name="email" placeholder="Email của bạn" required="" type="email">
+                            <button class="btn" type="submit">Đăng ký</button>
                         </form>
                     </div>
                     <!-- End Newsletter Inner -->

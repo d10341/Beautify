@@ -138,7 +138,9 @@ class OrderController extends Controller
         ];
         Notification::send($users, new StatusNotification($details));
         if(request('payment_method')=='paypal'){
-            return redirect()->route('payment')->with(['id'=>$order->id]);
+       
+            return redirect()->route('processTransaction')->with(['id'=>$order->id]);
+            dd('paypal');
         }
         else{
             session()->forget('cart');

@@ -11,8 +11,8 @@
 				<div class="col-12">
 					<div class="bread-inner">
 						<ul class="bread-list">
-							<li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-							<li class="active"><a href="blog-single.html">Về chúng tôi </a></li>
+							<li><a href="index1.html">Trang chủ<i class="ti-arrow-right"></i></a></li>
+							<li class="active"><a href="blog-single.html">Về chúng tôi</a></li>
 						</ul>
 					</div>
 				</div>
@@ -30,11 +30,11 @@
 							@php
 								$settings=DB::table('settings')->get();
 							@endphp
-							<h3>Welcome To <span>Eshop</span></h3>
+							<h3>Chào mừng đến với<span>cửa hàng của chúng tôi</span></h3>
 							<p>@foreach($settings as $data) {{$data->description}} @endforeach</p>
 							<div class="button">
-								<a href="{{route('blog')}}" class="btn">Our Blog</a>
-								<a href="{{route('contact')}}" class="btn primary">Liên hệ với chúng tôi </a>
+								<a href="{{route('blog')}}" class="btn">Bài viết</a>
+								<a href="{{route('contact')}}" class="btn primary">Liên hệ</a>
 							</div>
 						</div>
 					</div>
@@ -60,8 +60,8 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-rocket"></i>
-						<h4>Miễn phí ship</h4>
-						<p>Orders over $100</p>
+						<h4>Miễn phí giao hàng</h4>
+						<p>cho đơn hàng từ 10.000.000 VND</p>
 					</div>
 					<!-- End Single Service -->
 				</div>
@@ -69,8 +69,8 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-reload"></i>
-						<h4>Hoàn hàng</h4>
-						<p>Within 30 days returns</p>
+						<h4>Miễn phí đổi trả</h4>
+						<p>Trong 30 ngày đầu</p>
 					</div>
 					<!-- End Single Service -->
 				</div>
@@ -78,8 +78,8 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-lock"></i>
-						<h4>Hóa đơn</h4>
-						<p>100% secure payment</p>
+						<h4>Bảo mật thanh toán</h4>
+						<p>100% Bảo mật thanh toán</p>
 					</div>
 					<!-- End Single Service -->
 				</div>
@@ -87,8 +87,8 @@
 					<!-- Start Single Service -->
 					<div class="single-service">
 						<i class="ti-tag"></i>
-						<h4>Giá tốt nhất</h4>
-						<p>Guaranteed price</p>
+						<h4>Giá tốt nhất</h4>
+						<p>Giá luôn tốt nhất đối với khách hàng</p>
 					</div>
 					<!-- End Single Service -->
 				</div>

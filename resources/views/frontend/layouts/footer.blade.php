@@ -24,11 +24,11 @@
 						<div class="single-footer links">
 							<h4>Thông tin</h4>
 							<ul>
-								<li><a href="{{route('about-us')}}">Về chúng tôi</a></li>
-								<li><a href="#">Faq</a></li>
-								<li><a href="#">Terms & Conditions</a></li>
-								<li><a href="{{route('contact')}}">Liên lạc</a></li>
-								<li><a href="#">Trợ giúp</a></li>
+								<li><a href="{{route('about-us')}}">Về chúng tôi</a></li>
+								<li><a href="#">Câu hỏi thường gặp</a></li>
+								<li><a href="#">Điều khoản và chính sách</a></li>
+								<li><a href="{{route('contact')}}">Liên hệ với chúng tôi</a></li>
+								<li><a href="#">Trợ giúp</a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->
@@ -36,13 +36,13 @@
 					<div class="col-lg-2 col-md-6 col-12">
 						<!-- Single Widget -->
 						<div class="single-footer links">
-							<h4>Hỗ trợ khách hàng</h4>
+							<h4>Dịch vụ khách hàng</h4>
 							<ul>
-								<li><a href="#">Payment Methods</a></li>
-								<li><a href="#">Money-back</a></li>
-								<li><a href="#">Returns</a></li>
-								<li><a href="#">Shipping</a></li>
-								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#">Phương thức thanh toán</a></li>
+								<li><a href="#">Hoàn tiền</a></li>
+								<li><a href="#">Hoàn trả sản phẩm</a></li>
+								<li><a href="#">Giao hàng</a></li>
+								<li><a href="#">Chính sách </a></li>
 							</ul>
 						</div>
 						<!-- End Single Widget -->
@@ -50,7 +50,7 @@
 					<div class="col-lg-3 col-md-6 col-12">
 						<!-- Single Widget -->
 						<div class="single-footer social">
-							<h4>Địa chỉ</h4>
+							<h4>Get In Tuch</h4>
 							<!-- Single Widget -->
 							<div class="contact">
 								<ul>
@@ -74,7 +74,7 @@
 					<div class="row">
 						<div class="col-lg-6 col-12">
 							<div class="left">
-								<p>Copyright © {{date('Y')}} <a href="https://github.com/Prajwal100" target="_blank">Prajwal Rai</a>  -  All Rights Reserved.</p>
+								<p>Copyright © {{date('Y')}} <a href="https://github.com/Prajwal100" target="_blank">Linh</a>  -  All Rights Reserved.</p>
 							</div>
 						</div>
 						<div class="col-lg-6 col-12">
