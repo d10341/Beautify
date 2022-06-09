@@ -1,59 +1,79 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Srmklive\PayPal\Services\ExpressCheckout;
 use Illuminate\Http\Request;
 use NunoMaduro\Collision\Provider;
-// use Srmklive\PayPal\Services\PayPal as PayPalClient;
+use Srmklive\PayPal\Services\PayPal as PayPalClient;
 use App\Models\Cart;
 use App\Models\Product;
-use PayPal as PayPalClient;
-use DB;
+//use PayPal as PayPalClient;
+use Exception;
+
 class PaypalController extends Controller
 {
-
     public function payment()
     {
         return view('checkout');
     }
+    
+    public function charge(Request $request)
+    {
+        if($request->input('submit'))
+        {
+            try {
+                $response = $this->gateway->purchase(array(
+                    'amount' => $request->input('amount'),
+                    'currency' => env('PAYPAL_CURRENCY'),
+                    'returnUrl' => url('success'),
+                    'cancelUrl' => url('error'),
+                ))->send();
+            
+                if ($response->isRedirect()) {
+                    $response->redirect(); // this will automatically forward the customer
+                } else {
+                    // not successful
+                    return $response->getMessage();
+                }
+            } catch(Exception $e) {
+                return $e->getMessage();
+            }
+        }
+    }
 
-    /**
-     * process transaction.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function processTransaction(Request $request)
     {
         $provider = new PaypalClient;
         $provider->setApiCredentials(config('paypal'));
         $paypalToken = $provider->getAccessToken();
-        $cart = Cart::where('user_id',auth()->user()->id)->where('order_id',null)->get()->toArray();
-        
+        $cart = Cart::where('user_id', auth()->user()->id)->where('order_id', null)->get()->toArray();
+
         $data = [];
-        
+
         // return $cart;
-        $data['items'] = array_map(function ($item) use($cart) {
-            $name=Product::where('id',$item['product_id'])->pluck('title');
+        $data['items'] = array_map(function ($item) use ($cart) {
+            $name = Product::where('id', $item['product_id'])->pluck('title');
             return [
-                'name' =>$name ,
+                'name' => $name,
                 'price' => $item['price'],
                 'desc'  => 'Thank you for using paypal',
                 'qty' => $item['quantity']
             ];
         }, $cart);
 
-        $data['invoice_id'] ='ORD-'.strtoupper(uniqid());
+        $data['invoice_id'] = 'ORD-' . strtoupper(uniqid());
         $data['invoice_description'] = "Order #{$data['invoice_id']} Invoice";
         $data['return_url'] = route('payment.success');
         $data['cancel_url'] = route('payment.cancel');
 
         $total = 0;
-        foreach($data['items'] as $item) {
-            $total += $item['price']*$item['qty'];
+        foreach ($data['items'] as $item) {
+            $total += $item['price'] * $item['qty'];
         }
 
         $data['total'] = $total;
-        if(session('coupon')){
+        if (session('coupon')) {
             $data['shipping_discount'] = session('coupon')['value'];
         }
         Cart::where('user_id', auth()->user()->id)->where('order_id', null)->update(['order_id' => session()->get('id')]);
@@ -81,7 +101,6 @@ class PaypalController extends Controller
             return redirect()
                 ->route('payment')
                 ->with('error', 'Something went wrong.');
-
         } else {
             return redirect()
                 ->route('payment')
@@ -121,15 +140,15 @@ class PaypalController extends Controller
     {
         return redirect()
             ->route('payment')
-            ->with('error', $response['message'] ?? 'You have canceled the transaction.');
+            ->with('error', $response['message'] ?? 'Hủy bỏ thanh toán.');
     }
 
     // public function payment()
     // {
     //     $cart = Cart::where('user_id',auth()->user()->id)->where('order_id',null)->get()->toArray();
-        
+
     //     $data = [];
-        
+
     //     // return $cart;
     //     $data['items'] = array_map(function ($item) use($cart) {
     //         $name=Product::where('id',$item['product_id'])->pluck('title');
@@ -159,12 +178,12 @@ class PaypalController extends Controller
 
     //     // return session()->get('id');
     //     $provider = new ExpressCheckout;
-  
+
     //     $response = $provider->setExpressCheckout($data);
-    
+
     //     return redirect($response['paypal_link']);
     // }
-   
+
     /**
      * Responds with a welcome message with instructions
      *
@@ -174,7 +193,7 @@ class PaypalController extends Controller
     {
         dd('Your payment is canceled. You can create cancel page here.');
     }
-  
+
     /**
      * Responds with a welcome message with instructions
      *
@@ -185,15 +204,15 @@ class PaypalController extends Controller
         $provider = new ExpressCheckout;
         $response = $provider->getExpressCheckoutDetails($request->token);
         // return $response;
-  
+
         if (in_array(strtoupper($response['ACK']), ['SUCCESS', 'SUCCESSWITHWARNING'])) {
-            request()->session()->flash('success','You successfully pay from Paypal! Thank You');
+            request()->session()->flash('success', 'You successfully pay from Paypal! Thank You');
             session()->forget('cart');
             session()->forget('coupon');
             return redirect()->route('home');
         }
-  
-        request()->session()->flash('error','Something went wrong please try again!!!');
+
+        request()->session()->flash('error', 'Something went wrong please try again!!!');
         return redirect()->back();
     }
 }
