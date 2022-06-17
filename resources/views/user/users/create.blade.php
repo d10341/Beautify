@@ -32,7 +32,7 @@
         </div>
 
         <div class="form-group">
-        <label for="inputPhoto" class="col-form-label">Photo</label>
+        <label for="inputPhoto" class="col-form-label">Ảnh</label>
         <div class="input-group">
             <span class="input-group-btn">
                 <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
@@ -62,7 +62,7 @@
           @enderror
           </div>
           <div class="form-group">
-            <label for="status" class="col-form-label">Status</label>
+            <label for="status" class="col-form-label">Trạng thái</label>
             <select name="status" class="form-control">
                 <option value="active">Active</option>
                 <option value="inactive">Inactive</option>

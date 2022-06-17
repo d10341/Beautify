@@ -17,26 +17,26 @@
         <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
+              <th>ID</th>
               <th>Review By</th>
-              <th>Product Title</th>
+              <th>Product Tiêu đề</th>
               <th>Review</th>
               <th>Rate</th>
               <th>Date</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Trạng thái</th>
+              <th>Hoạt động</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
+              <th>ID</th>
               <th>Review By</th>
-              <th>Product Title</th>
+              <th>Product Tiêu đề</th>
               <th>Review</th>
               <th>Rate</th>
               <th>Date</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Trạng thái</th>
+              <th>Hoạt động</th>
               </tr>
           </tfoot>
           <tbody>

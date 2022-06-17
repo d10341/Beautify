@@ -9,7 +9,7 @@
         @csrf 
         @method('PATCH')
         <div class="form-group">
-          <label for="inputTitle" class="col-form-label">Title <span class="text-danger">*</span></label>
+          <label for="inputTitle" class="col-form-label">Tiêu đề <span class="text-danger">*</span></label>
           <input id="inputTitle" type="text" name="title" placeholder="Enter title"  value="{{$post->title}}" class="form-control">
           @error('title')
           <span class="text-danger">{{$message}}</span>
@@ -41,7 +41,7 @@
         </div>
 
         <div class="form-group">
-          <label for="post_cat_id">Category <span class="text-danger">*</span></label>
+          <label for="post_cat_id">Danh mục <span class="text-danger">*</span></label>
           <select name="post_cat_id" class="form-control">
               <option value="">--Select any category--</option>
               @foreach($categories as $key=>$data)
@@ -74,7 +74,7 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
+          <label for="inputPhoto" class="col-form-label">Ảnh <span class="text-danger">*</span></label>
           <div class="input-group">
               <span class="input-group-btn">
                   <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
@@ -91,7 +91,7 @@
         </div>
         
         <div class="form-group">
-          <label for="status" class="col-form-label">Status <span class="text-danger">*</span></label>
+          <label for="status" class="col-form-label">Trạng thái <span class="text-danger">*</span></label>
           <select name="status" class="form-control">
             <option value="active" {{(($post->status=='active')? 'selected' : '')}}>Active</option>
             <option value="inactive" {{(($post->status=='inactive')? 'selected' : '')}}>Inactive</option>
@@ -124,7 +124,7 @@
 
     $(document).ready(function() {
     $('#summary').summernote({
-      placeholder: "Write short description.....",
+      placeholder: "Viết mô tả ngắn.....",
         tabsize: 2,
         height: 150
     });

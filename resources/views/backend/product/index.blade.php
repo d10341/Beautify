@@ -18,36 +18,36 @@
         <table class="table table-bordered" id="product-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Category</th>
+              <th>ID</th>
+              <th>Tiêu đề</th>
+              <th>Danh mục</th>
               <th>Is Featured</th>
-              <th>Price</th>
-              <th>Discount</th>
+              <th>Giá</th>
+              <th>Giảm giá</th>
               <th>Size</th>
               <th>Condition</th>
               <th>Brand</th>
-              <th>Stock</th>
-              <th>Photo</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Tồn kho</th>
+              <th>Ảnh</th>
+              <th>Trạng thái</th>
+              <th>Hoạt động</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Category</th>
+              <th>ID</th>
+              <th>Tiêu đề</th>
+              <th>Danh mục</th>
               <th>Is Featured</th>
-              <th>Price</th>
-              <th>Discount</th>
+              <th>Giá</th>
+              <th>Giảm giá</th>
               <th>Size</th>
               <th>Condition</th>
               <th>Brand</th>
-              <th>Stock</th>
-              <th>Photo</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Tồn kho</th>
+              <th>Ảnh</th>
+              <th>Trạng thái</th>
+              <th>Hoạt động</th>
             </tr>
           </tfoot>
           <tbody>
@@ -67,7 +67,7 @@
                       </sub>
                     </td>
                     <td>{{(($product->is_featured==1)? 'Yes': 'No')}}</td>
-                    <td>Rs. {{$product->price}} /-</td>
+                    <td>₫{{$product->price}}</td>
                     <td>  {{$product->discount}}% OFF</td>
                     <td>{{$product->size}}</td>
                     <td>{{$product->condition}}</td>

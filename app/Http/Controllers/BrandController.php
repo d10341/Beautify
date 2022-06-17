@@ -34,9 +34,9 @@ class BrandController extends Controller
         $data['slug'] = $slug;
         $status = Brand::create($data);
         if ($status) {
-            request()->session()->flash('success', 'Brand successfully created');
+            request()->session()->flash('success', 'Tạo Thương hiệu thành công');
         } else {
-            request()->session()->flash('error', 'Error, Please try again');
+            request()->session()->flash('error', 'Lỗi, vui lòng thử lại');
         }
         return redirect()->route('brand.index');
     }
@@ -50,7 +50,7 @@ class BrandController extends Controller
     {
         $brand = Brand::find($id);
         if (!$brand) {
-            request()->session()->flash('error', 'Brand not found');
+            request()->session()->flash('error', 'Không tìm thấy Thương hiệu');
         }
         return view('backend.brand.edit')->with('brand', $brand);
     }
@@ -65,9 +65,9 @@ class BrandController extends Controller
 
         $status = $brand->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Brand successfully updated');
+            request()->session()->flash('success', 'Sửa Thương hiệu thành công');
         } else {
-            request()->session()->flash('error', 'Error, Please try again');
+            request()->session()->flash('error', 'Lỗi, vui lòng thử lại');
         }
         return redirect()->route('brand.index');
     }
@@ -78,13 +78,13 @@ class BrandController extends Controller
         if ($brand) {
             $status = $brand->delete();
             if ($status) {
-                request()->session()->flash('success', 'Brand successfully deleted');
+                request()->session()->flash('success', 'Xóa Thương hiệu thành công');
             } else {
-                request()->session()->flash('error', 'Error, Please try again');
+                request()->session()->flash('error', 'Lỗi, vui lòng thử lại');
             }
             return redirect()->route('brand.index');
         } else {
-            request()->session()->flash('error', 'Brand not found');
+            request()->session()->flash('error', 'Không tìm thấy Thương hiệu');
             return redirect()->back();
         }
     }

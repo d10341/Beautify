@@ -44,9 +44,9 @@ class CategoryController extends Controller
 
         $status = Category::create($data);
         if ($status) {
-            request()->session()->flash('success', 'Category successfully added');
+            request()->session()->flash('success', 'Thêm Danh mục thành công');
         } else {
-            request()->session()->flash('error', 'Error occurred, Please try again!');
+            request()->session()->flash('error', 'Lỗi, vui lòng thử lại');
         }
         return redirect()->route('category.index');
     }
@@ -83,9 +83,9 @@ class CategoryController extends Controller
 
         $status = $category->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Category successfully updated');
+            request()->session()->flash('success', 'Sửa Danh mục thành công');
         } else {
-            request()->session()->flash('error', 'Error occurred, Please try again!');
+            request()->session()->flash('error', 'Lỗi, vui lòng thử lại');
         }
         return redirect()->route('category.index');
     }
@@ -101,9 +101,9 @@ class CategoryController extends Controller
             if (count($child_cat_id) > 0) {
                 Category::shiftChild($child_cat_id);
             }
-            request()->session()->flash('success', 'Category successfully deleted');
+            request()->session()->flash('success', 'Xóa Danh mục thành công');
         } else {
-            request()->session()->flash('error', 'Error while deleting category');
+            request()->session()->flash('error', 'Lỗi, vui lòng thử lại');
         }
         return redirect()->route('category.index');
     }

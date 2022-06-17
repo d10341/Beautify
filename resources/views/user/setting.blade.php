@@ -24,7 +24,7 @@
           @enderror
         </div>
         <div class="form-group">
-          <label for="inputPhoto" class="col-form-label">Photo <span class="text-danger">*</span></label>
+          <label for="inputPhoto" class="col-form-label">Ảnh <span class="text-danger">*</span></label>
           <div class="input-group">
               <span class="input-group-btn">
                   <a id="lfm" data-input="thumbnail" data-preview="holder" class="btn btn-primary">
@@ -115,7 +115,7 @@
 
     $(document).ready(function() {
     $('#summary').summernote({
-      placeholder: "Write short description.....",
+      placeholder: "Viết mô tả ngắn.....",
         tabsize: 2,
         height: 150
     });

@@ -52,7 +52,7 @@
                                                         target="_blank">{{ $cart->product['title'] }}</a></p>
                                                 <p class="product-des">{!! $cart['summary'] !!}</p>
                                             </td>
-                                            <td class="price" data-title="Price">
+                                            <td class="price" data-title="Giá">
                                                 <span>₫{{ number_format($cart['price'], 0) }}</span></td>
                                             <td class="qty" data-title="Qty">
                                                 <!-- Input Order -->
@@ -113,7 +113,7 @@
             </div>
             <div class="row">
                 <div class="col-12">
-                    <!-- Total Amount -->
+                    <!-- Tổng -->
                     <div class="total-amount">
                         <div class="row">
                             <div class="col-lg-8 col-md-5 col-12">
@@ -167,7 +167,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--/ End Total Amount -->
+                    <!--/ End Tổng -->
                 </div>
             </div>
         </div>

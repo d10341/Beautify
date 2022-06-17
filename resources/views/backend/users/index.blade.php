@@ -17,26 +17,26 @@
         <table class="table table-bordered" id="user-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
+              <th>ID</th>
               <th>Name</th>
               <th>Email</th>
-              <th>Photo</th>
+              <th>Ảnh</th>
               <th>Join Date</th>
               <th>Role</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Trạng thái</th>
+              <th>Hoạt động</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-                <th>S.N.</th>
+                <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Photo</th>
+                <th>Ảnh</th>
                 <th>Join Date</th>
                 <th>Role</th>
-                <th>Status</th>
-                <th>Action</th>
+                <th>Trạng thái</th>
+                <th>Hoạt động</th>
               </tr>
           </tfoot>
           <tbody>

@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title', 'E-SHOP || PRODUCT PAGE')
+@section('title', 'BEAUTIFY || PRODUCT PAGE')
 
 @section('main-content')
 
@@ -29,9 +29,9 @@
                     <div class="col-lg-3 col-md-4 col-12">
                         <div class="shop-sidebar">
                             <!-- Single Widget -->
-                            <div class="single-widget category">
-                                <h3 class="title">Danh mục</h3>
-                                <ul class="categor-list">
+                            <div class="single-widget" style="height: 640px;">
+                                <h3 class="title" style="margin-bottom:0px;">Danh mục</h3>
+                                <ul class="categor-list scrollbar" id="style-1">
                                     @php
                                         // $category = new Category();
                                         $menu = App\Models\Category::getAllParentWithChild();
@@ -68,19 +68,11 @@
                             <!--/ End Single Widget -->
                             <!-- Shop By Price -->
                             <div class="single-widget range">
-                                <h3 class="title">Gía cả</h3>
+                                <h3 class="title">Lọc Giá</h3>
                                 <div class="price-filter">
                                     <div class="price-filter-inner">
-                                        {{-- <div id="slider-range" data-min="10" data-max="2000" data-currency="%"></div>
-												<div class="price_slider_amount">
-												<div class="label-input">
-													<span>Trong khoảng:</span>
-													<input type="text" id="amount" name="price_range" value='@if (!empty($_GET['price'])) {{$_GET['price']}} @endif' placeholder="Add Your Price"/>
-												</div>
-											</div> --}}
                                         @php
                                             $max = DB::table('products')->max('price');
-                                            // dd($max);
                                         @endphp
                                         <div id="slider-range" data-min="0" data-max="{{ $max }}"></div>
                                         <div class="product_filter">
@@ -98,7 +90,7 @@
                             <!--/ End Shop By Price -->
                             <!-- Single Widget -->
                             <div class="single-widget recent-post">
-                                <h3 class="title">Bài viết gần đây</h3>
+                                <h3 class="title">Gần đây</h3>
                                 {{-- {{dd($recent_products)}} --}}
                                 @foreach ($recent_products as $product)
                                     <!-- Single Post -->
@@ -126,9 +118,9 @@
                             </div>
                             <!--/ End Single Widget -->
                             <!-- Single Widget -->
-                            <div class="single-widget category">
-                                <h3 class="title">Brands</h3>
-                                <ul class="categor-list">
+                            <div class="single-widget" style="height: 640px;">
+                                <h3 class="title" style="margin-bottom:0px;">Thương hiệu</h3>
+                                <ul class="categor-list scrollbar" id="style-1">
                                     @php
                                         $brands = DB::table('brands')
                                             ->orderBy('title', 'ASC')
@@ -169,12 +161,13 @@
                                             <label>Sắp xếp theo :</label>
                                             <select class='sortBy' name='sortBy' onchange="this.form.submit();">
                                                 <option value="">Mặc định</option>
-                                                <option value="title" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'title') selected @endif>Name
+                                                <option value="title" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'title') selected @endif>
+                                                    Name
                                                 </option>
                                                 <option value="price" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'price') selected @endif>
-                                                    Price</option>
+                                                    Giá</option>
                                                 <option value="category" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'category') selected @endif>
-                                                    Category</option>
+                                                    Danh mục</option>
                                                 <option value="brand" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'brand') selected @endif>
                                                     Brand</option>
                                             </select>
@@ -183,8 +176,8 @@
                                     <ul class="view-mode">
                                         <li><a href="{{ route('product-grids') }}"><i class="fa fa-th-large"></i></a>
                                         </li>
-                                        <li class="active"><a href="javascript:void(0)"><i
-                                                    class="fa fa-th-list"></i></a></li>
+                                        <li class="active"><a href="javascript:void(0)"><i class="fa fa-th-list"></i></a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <!--/ End Shop Top -->
@@ -211,14 +204,14 @@
                                                         </a>
                                                         <div class="button-head">
                                                             <div class="product-action">
-                                                                <a data-toggle="modal" data-target="#{{ $product->id }}"
+                                                                <a data-toggle="modal"
+                                                                    data-target="#{{ $product->id }}"
                                                                     title="Quick View" href="#"><i
                                                                         class=" ti-eye"></i><span>Quick
                                                                         Shop</span></a>
                                                                 <a title="Wishlist"
                                                                     href="{{ route('add-to-wishlist', $product->slug) }}"
-                                                                    class="wishlist"
-                                                                    data-id="{{ $product->id }}"><i
+                                                                    class="wishlist" data-id="{{ $product->id }}"><i
                                                                         class=" ti-heart "></i><span>Add to
                                                                         Wishlist</span></a>
                                                             </div>
@@ -374,8 +367,8 @@
                                                         </button>
                                                     </div>
                                                     <input type="hidden" name="slug" value="{{ $product->slug }}">
-                                                    <input type="text" name="quant[1]" class="input-number" data-min="1"
-                                                        data-max="1000" value="1">
+                                                    <input type="text" name="quant[1]" class="input-number"
+                                                        data-min="1" data-max="1000" value="1">
                                                     <div class="button plus">
                                                         <button type="button" class="btn btn-primary btn-number"
                                                             data-type="plus" data-field="quant[1]">
@@ -489,4 +482,38 @@
             }
         })
     </script>
+    <style>
+        .scrollbar {
+            float: left;
+            height: 500px;
+            width: 100%;
+            overflow-y: hidden;
+            background: #F6F7FB
+        }
+
+        .scrollbar:hover {
+            overflow-y: auto;
+        }
+
+        .force-overflow {
+            min-height: 450px;
+        }
+
+        #style-1::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        }
+
+        #style-1::-webkit-scrollbar {
+            width: 3px;
+            background-color: #F5F5F5;
+        }
+
+        #style-1::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            background-color: #555;
+        }
+    </style>
 @endpush

@@ -18,26 +18,26 @@
         <table class="table table-bordered" id="product-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Category</th>
+              <th>ID</th>
+              <th>Tiêu đề</th>
+              <th>Danh mục</th>
               <th>Tag</th>
               <th>Author</th>
-              <th>Photo</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Ảnh</th>
+              <th>Trạng thái</th>
+              <th>Hoạt động</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Category</th>
+              <th>ID</th>
+              <th>Tiêu đề</th>
+              <th>Danh mục</th>
               <th>Tag</th>
               <th>Author</th>
-              <th>Photo</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Ảnh</th>
+              <th>Trạng thái</th>
+              <th>Hoạt động</th>
             </tr>
           </tfoot>
           <tbody>

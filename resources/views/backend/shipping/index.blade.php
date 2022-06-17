@@ -18,20 +18,20 @@
         <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Price</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>ID</th>
+              <th>Tiêu đề</th>
+              <th>Giá</th>
+              <th>Trạng thái</th>
+              <th>Hoạt động</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Price</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>ID</th>
+              <th>Tiêu đề</th>
+              <th>Giá</th>
+              <th>Trạng thái</th>
+              <th>Hoạt động</th>
               </tr>
           </tfoot>
           <tbody>

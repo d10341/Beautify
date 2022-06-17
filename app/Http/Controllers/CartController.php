@@ -21,12 +21,14 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
         if (empty($request->slug)) {
-            request()->session()->flash('error', 'Invalid Products');
+            request()->session()->flash('error', '
+            Sản phẩm không hợp lệ');
             return back();
         }
         $product = Product::where('slug', $request->slug)->first();
         if (empty($product)) {
-            request()->session()->flash('error', 'Invalid Products');
+            request()->session()->flash('error', '
+            Sản phẩm không hợp lệ');
             return back();
         }
 
@@ -34,7 +36,7 @@ class CartController extends Controller
         if ($already_cart) {
             $already_cart->quantity = $already_cart->quantity + 1;
             $already_cart->amount = $product->price + $already_cart->amount;
-            if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error', 'Stock not sufficient!.');
+            if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error', 'Không đủ sản phảm.');
             $already_cart->save();
         } else {
 
@@ -44,11 +46,11 @@ class CartController extends Controller
             $cart->price = ($product->price - ($product->price * $product->discount) / 100);
             $cart->quantity = 1;
             $cart->amount = $cart->price * $cart->quantity;
-            if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error', 'Stock not sufficient!.');
+            if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error', 'Không đủ sản phảm.');
             $cart->save();
             $wishlist = Wishlist::where('user_id', auth()->user()->id)->where('cart_id', null)->update(['cart_id' => $cart->id]);
         }
-        request()->session()->flash('success', 'Product successfully added to cart');
+        request()->session()->flash('success', 'Thêm sản phẩm vào giỏ hàng thành công');
         return back();
     }
 
@@ -62,10 +64,10 @@ class CartController extends Controller
 
         $product = Product::where('slug', $request->slug)->first();
         if ($product->stock < $request->quant[1]) {
-            return back()->with('error', 'Out of stock, You can add other products.');
+            return back()->with('error', 'Hết hàng');
         }
         if (($request->quant[1] < 1) || empty($product)) {
-            request()->session()->flash('error', 'Invalid Products');
+            request()->session()->flash('error', 'Sản phẩm không hợp lệ');
             return back();
         }
 
@@ -76,7 +78,7 @@ class CartController extends Controller
             $already_cart->quantity = $already_cart->quantity + $request->quant[1];
             $already_cart->amount = ($product->price * $request->quant[1]) + $already_cart->amount;
 
-            if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error', 'Stock not sufficient!.');
+            if ($already_cart->product->stock < $already_cart->quantity || $already_cart->product->stock <= 0) return back()->with('error', 'Hết hàng.');
 
             $already_cart->save();
         } else {
@@ -87,10 +89,10 @@ class CartController extends Controller
             $cart->price = ($product->price - ($product->price * $product->discount) / 100);
             $cart->quantity = $request->quant[1];
             $cart->amount = ($product->price * $request->quant[1]);
-            if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error', 'Stock not sufficient!.');
+            if ($cart->product->stock < $cart->quantity || $cart->product->stock <= 0) return back()->with('error', 'Hết hàng.');
             $cart->save();
         }
-        request()->session()->flash('success', 'Product successfully added to cart.');
+        request()->session()->flash('success', 'Thêm sản phẩm vào giỏ hàng thành công.');
         return back();
     }
 
@@ -99,10 +101,10 @@ class CartController extends Controller
         $cart = Cart::find($request->id);
         if ($cart) {
             $cart->delete();
-            request()->session()->flash('success', 'Cart successfully removed');
+            request()->session()->flash('success', 'Xóa sản phẩm khỏi giỏ hàng thành công');
             return back();
         }
-        request()->session()->flash('error', 'Error please try again');
+        request()->session()->flash('error', 'Lỗi, thử lại sau');
         return back();
     }
 
@@ -122,7 +124,7 @@ class CartController extends Controller
 
 
                     if ($cart->product->stock < $quant) {
-                        request()->session()->flash('error', 'Out of stock');
+                        request()->session()->flash('error', 'Hết hàng.');
                         return back();
                     }
                     $cart->quantity = ($cart->product->stock > $quant) ? $quant  : $cart->product->stock;
@@ -133,14 +135,14 @@ class CartController extends Controller
                     $cart->amount = $after_price * $quant;
 
                     $cart->save();
-                    $success = 'Cart successfully updated!';
+                    $success = 'Cập nhật giỏ hàng thành công.';
                 } else {
-                    $error[] = 'Cart Invalid!';
+                    $error[] = 'Giỏ hàng không hợp lệ.';
                 }
             }
             return back()->with($error)->with('success', $success);
         } else {
-            return back()->with('Cart Invalid!');
+            return back()->with('Giỏ hàng không hợp lệ.');
         }
     }
 

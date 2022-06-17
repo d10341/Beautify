@@ -13,15 +13,15 @@
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th>S.N.</th>
+                            <th>ID</th>
                             <th>Order No.</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Quantity</th>
                             <th>Charge</th>
-                            <th>Total Amount</th>
+                            <th>Tổng</th>
                             <th>Status</th>
-                            <th>Action</th>
+                            <th>Hoạt động</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -90,7 +90,7 @@
                                             <td> : ₫ {{ number_format($order->delivery_charge, 0) }}</td>
                                         </tr>
                                         <tr>
-                                            <td>Total Amount</td>
+                                            <td>Tổng</td>
                                             <td> : ₫ {{ number_format($order->total_amount, 0) }}</td>
                                         </tr>
                                         <tr>

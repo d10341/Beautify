@@ -60,9 +60,9 @@ class ProductController extends Controller
         $data['exp_date'] = $request->input('exp_date');
         $status = Product::create($data);
         if ($status) {
-            request()->session()->flash('success', 'Product Successfully added');
+            request()->session()->flash('success', 'Thêm sản phẩm thành công');
         } else {
-            request()->session()->flash('error', 'Please try again!!');
+            request()->session()->flash('error', 'Lỗi, vui lòng thử lại');
         }
         return redirect()->route('product.index');
     }
@@ -117,9 +117,9 @@ class ProductController extends Controller
         // return $data;
         $status = $product->fill($data)->save();
         if ($status) {
-            request()->session()->flash('success', 'Product Successfully updated');
+            request()->session()->flash('success', 'Cập nhật Sản phẩm thành công');
         } else {
-            request()->session()->flash('error', 'Please try again!!');
+            request()->session()->flash('error', 'Lỗi, vui lòng thử lại');
         }
         return redirect()->route('product.index');
     }
@@ -130,9 +130,9 @@ class ProductController extends Controller
         $status = $product->delete();
 
         if ($status) {
-            request()->session()->flash('success', 'Product successfully deleted');
+            request()->session()->flash('success', 'Xóa Sản phẩm thành công');
         } else {
-            request()->session()->flash('error', 'Error while deleting product');
+            request()->session()->flash('error', 'Lỗi, vui lòng thử lại');
         }
         return redirect()->route('product.index');
     }

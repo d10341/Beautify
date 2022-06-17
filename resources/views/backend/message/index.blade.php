@@ -16,7 +16,7 @@
           <th scope="col">Name</th>
           <th scope="col">Subject</th>
           <th scope="col">Date</th>
-          <th scope="col">Action</th>
+          <th scope="col">Hoạt động</th>
         </tr>
       </thead>
       <tbody>

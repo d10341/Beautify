@@ -18,9 +18,9 @@
       <textarea name="comment" id="" cols="20" rows="10" class="form-control">{{$comment->comment}}</textarea>
       </div>
       <div class="form-group">
-        <label for="status">Status :</label>
+        <label for="status">Trạng thái :</label>
         <select name="status" id="" class="form-control">
-          <option value="">--Select Status--</option>
+          <option value="">--Select Trạng thái--</option>
           <option value="active" {{(($comment->status=='active')? 'selected' : '')}}>Active</option>
           <option value="inactive" {{(($comment->status=='inactive')? 'selected' : '')}}>Inactive</option>
         </select>

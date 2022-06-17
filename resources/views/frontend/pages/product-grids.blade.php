@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title', 'E-SHOP || PRODUCT PAGE')
+@section('title', 'BEAUTIFY || PRODUCT PAGE')
 
 @section('main-content')
     <!-- Breadcrumbs -->
@@ -69,18 +69,17 @@
                             <!--/ End Single Widget -->
                             <!-- Shop By Price -->
                             <div class="single-widget range">
-                                <h3 class="title">Shop by Price</h3>
+                                <h3 class="title">Lọc Giá</h3>
                                 <div class="price-filter">
                                     <div class="price-filter-inner">
                                         @php
                                             $max = DB::table('products')->max('price');
-                                            // dd($max);
                                         @endphp
                                         <div id="slider-range" data-min="0" data-max="{{ $max }}"></div>
                                         <div class="product_filter">
                                             <button type="submit" class="filter_button">Filter</button>
                                             <div class="label-input">
-                                                <span>Range:</span>
+                                                <span>Khoảng:</span>
                                                 <input style="" type="text" id="amount" readonly />
                                                 <input type="hidden" name="price_range" id="price_range"
                                                     value="@if (!empty($_GET['price'])) {{ $_GET['price'] }} @endif" />
@@ -93,7 +92,7 @@
                             <!--/ End Shop By Price -->
                             <!-- Single Widget -->
                             <div class="single-widget recent-post">
-                                <h3 class="title">Recent post</h3>
+                                <h3 class="title">Gần đây</h3>
                                 {{-- {{dd($recent_products)}} --}}
                                 @foreach ($recent_products as $product)
                                     <!-- Single Post -->
@@ -165,20 +164,21 @@
                                             <label>Sort By :</label>
                                             <select class='sortBy' name='sortBy' onchange="this.form.submit();">
                                                 <option value="">Default</option>
-                                                <option value="title" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'title') selected @endif>Name
+                                                <option value="title" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'title') selected @endif>
+                                                    Name
                                                 </option>
                                                 <option value="price" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'price') selected @endif>
-                                                    Price</option>
+                                                    Giá</option>
                                                 <option value="category" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'category') selected @endif>
-                                                    Category</option>
+                                                    Danh mục</option>
                                                 <option value="brand" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'brand') selected @endif>
                                                     Brand</option>
                                             </select>
                                         </div>
                                     </div>
                                     <ul class="view-mode">
-                                        <li class="active"><a href="javascript:void(0)"><i
-                                                    class="fa fa-th-large"></i></a></li>
+                                        <li class="active"><a href="javascript:void(0)"><i class="fa fa-th-large"></i></a>
+                                        </li>
                                         <li><a href="{{ route('product-lists') }}"><i class="fa fa-th-list"></i></a>
                                         </li>
                                     </ul>
@@ -388,8 +388,8 @@
                                                         </button>
                                                     </div>
                                                     <input type="hidden" name="slug" value="{{ $product->slug }}">
-                                                    <input type="text" name="quant[1]" class="input-number" data-min="1"
-                                                        data-max="1000" value="1">
+                                                    <input type="text" name="quant[1]" class="input-number"
+                                                        data-min="1" data-max="1000" value="1">
                                                     <div class="button plus">
                                                         <button type="button" class="btn btn-primary btn-number"
                                                             data-type="plus" data-field="quant[1]">

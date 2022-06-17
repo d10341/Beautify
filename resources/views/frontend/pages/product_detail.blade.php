@@ -14,7 +14,7 @@
     <meta property="og:image" content="{{ $product_detail->photo }}">
     <meta property="og:description" content="{{ $product_detail->description }}">
 @endsection
-@section('title', 'E-SHOP || PRODUCT DETAIL')
+@section('title', 'BEAUTIFY || PRODUCT DETAIL')
 @section('main-content')
 
     <!-- Breadcrumbs -->
@@ -151,15 +151,15 @@
                                         </div>
                                     </form>
 
-                                    <p class="cat">Category :<a
+                                    <p class="cat">Danh mục :<a
                                             href="{{ route('product-cat', $product_detail->cat_info['slug']) }}">{{ $product_detail->cat_info['title'] }}</a>
                                     </p>
                                     @if ($product_detail->sub_cat_info)
-                                        <p class="cat mt-1">Sub Category :<a
+                                        <p class="cat mt-1">Sub Danh mục :<a
                                                 href="{{ route('product-sub-cat', [$product_detail->cat_info['slug'], $product_detail->sub_cat_info['slug']]) }}">{{ $product_detail->sub_cat_info['title'] }}</a>
                                         </p>
                                     @endif
-                                    <p class="availability">Stock : @if ($product_detail->stock > 0)
+                                    <p class="availability">Tồn kho : @if ($product_detail->stock > 0)
                                             <span class="badge badge-success">{{ $product_detail->stock }}</span>
                                         @else
                                             <span class="badge badge-danger">{{ $product_detail->stock }}</span>

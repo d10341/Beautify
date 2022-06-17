@@ -1,5 +1,5 @@
 @extends('user.layouts.master')
-@section('title','E-SHOP || Comment Page')
+@section('title','BEAUTIFY || Comment Page')
 @section('main-content')
  <!-- DataTales Example -->
  <div class="card shadow mb-4">
@@ -17,24 +17,24 @@
         <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
+              <th>ID</th>
               <th>Author</th>
-              <th>Post Title</th>
+              <th>Post Tiêu đề</th>
               <th>Message</th>
               <th>Date</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Trạng thái</th>
+              <th>Hoạt động</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
+              <th>ID</th>
               <th>Author</th>
-              <th>Post Title</th>
+              <th>Post Tiêu đề</th>
               <th>Message</th>
               <th>Date</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Trạng thái</th>
+              <th>Hoạt động</th>
             </tr>
           </tfoot>
           <tbody>

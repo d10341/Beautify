@@ -98,26 +98,26 @@
                 <table class="table table-bordered" id="order-dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>S.N.</th>
+                            <th>ID</th>
                             <th>Order No.</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Quantity</th>
-                            <th>Total Amount</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th>Tổng</th>
+                            <th>Trạng thái</th>
+                            <th>Hoạt động</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>S.N.</th>
+                            <th>ID</th>
                             <th>Order No.</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Quantity</th>
-                            <th>Total Amount</th>
-                            <th>Status</th>
-                            <th>Action</th>
+                            <th>Tổng</th>
+                            <th>Trạng thái</th>
+                            <th>Hoạt động</th>
                         </tr>
                     </tfoot>
                     <tbody>

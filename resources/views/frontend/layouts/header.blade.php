@@ -33,17 +33,10 @@
                                     hàng</a></li>
                             {{-- <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
                             @auth
-                                @if (Auth::user()->role == 'admin')
-                                    <li><i class="ti-user"></i> <a href="{{ route('admin') }}"
-                                            target="_blank">Admin</a></li>
-                                @else
-                                    <li><i class="ti-user"></i> <a href="{{ route('user') }}"
-                                            target="_blank">Admin</a></li>
-                                @endif
                                 <li><i class="ti-power-off"></i> <a href="{{ route('user.logout') }}">Đăng xuất</a></li>
                             @else
                                 <li><i class="ti-power-off"></i><a href="{{ route('login.form') }}">Đăng nhập /</a> <a
-                                        href="{{ route('register.form') }}">Register</a></li>
+                                        href="{{ route('register.form') }}">Đăng ký</a></li>
                             @endauth
                         </ul>
                     </div>
@@ -192,7 +185,7 @@
                                             <span
                                                 class="total-amount">₫{{ number_format(Helper::totalCartPrice(), 0) }}</span>
                                         </div>
-                                        <a href="{{ route('checkout') }}" class="btn animate">Checkout</a>
+                                        <a href="{{ route('checkout') }}" class="btn animate">Thanh toán</a>
                                     </div>
                                 </div>
                             @endauth
@@ -225,9 +218,6 @@
                                             {{ Helper::getHeaderCategory() }}
                                             <li class="{{ Request::path() == 'blog' ? 'active' : '' }}"><a
                                                     href="{{ route('blog') }}">Bài viết</a></li>
-
-                                            <li class="{{ Request::path() == 'contact' ? 'active' : '' }}"><a
-                                                    href="{{ route('contact') }}">Liên lạc với chúng tôi</a></li>
                                         </ul>
                                     </div>
                                 </div>
