@@ -122,7 +122,7 @@
 
 
                     <div class='input-group date' id="date1">
-                        <input type='date' class="form-control" />
+                        <input type='date' class="form-control" name = 'manu_date'/>
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar">
                             </span>
@@ -134,8 +134,8 @@
                 <div class="form-group">
                     <label for="stock">Hạn sử dụng <span class="text-danger">*</span></label>
 
-                    <div class='input-group date' id='date2'>
-                        <input type='date' class="form-control" />
+                    <div class='input-group date' id='date2' >
+                        <input type='date' class="form-control" name = 'exp_date'/>
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>

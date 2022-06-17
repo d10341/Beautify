@@ -134,7 +134,7 @@
 
 
                     <div class='input-group date' id="date1">
-                        <input type='date' class="form-control" value="{{ $product->manu_date }}"/>
+                        <input type='date' class="form-control" name="manu_date" value="{{ $product->manu_date }}"/>
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar">
                             </span>
@@ -147,7 +147,7 @@
                     <label for="stock">Hạn sử dụng <span class="text-danger">*</span></label>
 
                     <div class='input-group date' id='date2'>
-                        <input type='date' class="form-control" value="{{ $product->exp_date }}"/>
+                        <input type='date' class="form-control" name="exp_date" value="{{ $product->exp_date }}"/>
                         <span class="input-group-addon">
                             <span class="glyphicon glyphicon-calendar"></span>
                         </span>
