@@ -9,7 +9,7 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Category Lists</h6>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Danh sách danh mục</h6>
       <a href="{{route('category.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Category</a>
     </div>
     <div class="card-body">
@@ -18,26 +18,26 @@
         <table class="table table-bordered" id="banner-dataTable" width="100%" cellspacing="0">
           <thead>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Slug</th>
-              <th>Is Parent</th>
-              <th>Parent Category</th>
-              <th>Photo</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>STT</th>
+              <th>Tên</th>
+              <th>Đường dẫn</th>
+              <th>Có phải danh mục cha không</th>
+              <th>Danh mục cha</th>
+              <th>Ảnh</th>
+              <th>Trạng thái </th>
+              <th>Hoạt động</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Slug</th>
-              <th>Is Parent</th>
-              <th>Parent Category</th>
-              <th>Photo</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>STT</th>
+              <th>Tên</th>
+              <th>Đường dẫn</th>
+              <th>Có phải danh mục cha không</th>
+              <th>Danh mục cha</th>
+              <th>Ảnh</th>
+              <th>Trạng thái </th>
+              <th>Hoạt động</th>
             </tr>
           </tfoot>
           <tbody>

@@ -9,7 +9,7 @@
          </div>
      </div>
     <div class="card-header py-3">
-      <h6 class="m-0 font-weight-bold text-primary float-left">Danh sách Banner</h6>
+      <h6 class="m-0 font-weight-bold text-primary float-left">Danh sách Ảnh bìa</h6>
       <a href="{{route('banner.create')}}" class="btn btn-primary btn-sm float-right" data-toggle="tooltip" data-placement="bottom" title="Add User"><i class="fas fa-plus"></i> Add Banner</a>
     </div>
     <div class="card-body">
@@ -19,21 +19,21 @@
           <thead>
             <tr>
               <th>S.N.</th>
-              <th>Title</th>
-              <th>Slug</th>
-              <th>Photo</th>
-              <th>Status</th>
-              <th>Action</th>
+              <th>Tiêu đề</th>
+              <th>Đường dẫn</th>
+              <th>Ảnh</th>
+              <th>Trạng thái</th>
+              <th>Thao tác</th>
             </tr>
           </thead>
           <tfoot>
             <tr>
-              <th>S.N.</th>
-              <th>Title</th>
-              <th>Slug</th>
-              <th>Photo</th>
-              <th>Status</th>
-              <th>Action</th>
+            <th>S.N.</th>
+              <th>Tiêu đề</th>
+              <th>Đường dẫn</th>
+              <th>Ảnh</th>
+              <th>Trạng thái</th>
+              <th>Thao tác</th>
               </tr>
           </tfoot>
           <tbody>
@@ -69,7 +69,7 @@
                         <div class="modal-dialog" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">Delete user</h5>
+                              <h5 class="modal-title" id="#delModal{{$user->id}}Label">Xóa User</h5>
                               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                               </button>
@@ -90,7 +90,7 @@
         </table>
         <span style="float:right">{{$banners->links()}}</span>
         @else
-          <h6 class="text-center">No banners found!!! Please create banner</h6>
+          <h6 class="text-center">Không tìm thấy ảnh bìa, bạn tạo thêm ảnh bìa nhé</h6>
         @endif
       </div>
     </div>
