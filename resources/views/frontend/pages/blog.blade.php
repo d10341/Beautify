@@ -1,6 +1,6 @@
 @extends('frontend.layouts.master')
 
-@section('title','BEAUTIFY || Blog Page')
+@section('title', 'BEAUTIFY || Blog Page')
 
 @section('main-content')
     <!-- Breadcrumbs -->
@@ -10,7 +10,7 @@
                 <div class="col-12">
                     <div class="bread-inner">
                         <ul class="bread-list">
-                            <li><a href="{{route('home')}}">Trang chủ<i class="ti-arrow-right"></i></a></li>
+                            <li><a href="{{ route('home') }}">Trang chủ<i class="ti-arrow-right"></i></a></li>
                             <li class="active"><a href="javascript:void(0);">Blog của chúng tôi</a></li>
                         </ul>
                     </div>
@@ -26,22 +26,31 @@
             <div class="row">
                 <div class="col-lg-8 col-12">
                     <div class="row">
-                        @foreach($posts as $post)
-                        {{-- {{$post}} --}}
+                        @foreach ($posts as $post)
+                            {{-- {{$post}} --}}
                             <div class="col-lg-6 col-md-6 col-12">
                                 <!-- Start Single Blog  -->
                                 <div class="shop-single-blog">
-                                <img src="{{$post->photo}}" alt="{{$post->photo}}">
+                                    <img src="{{ $post->photo }}" alt="{{ $post->photo }}">
                                     <div class="content">
-                                        <p class="date"><i class="fa fa-calendar" aria-hidden="true"></i> {{$post->created_at->format('d M, Y. D')}}
+                                        <p class="date"><i class="fa fa-calendar" aria-hidden="true"></i>
+                                            {{ $post->created_at->format('d M, Y. D') }}
                                             <span class="float-right">
                                                 <i class="fa fa-user" aria-hidden="true"></i>
-                                                 {{$post->author_info->name ?? 'Anonymous'}}
+                                                {{ $post->author_info->name ?? 'Anonymous' }}
                                             </span>
                                         </p>
-                                        <a href="{{route('blog.detail',$post->slug)}}" class="title">{{$post->title}}</a>
-                                        <p>{!! html_entity_decode($post->summary) !!}</p>
-                                        <a href="{{route('blog.detail',$post->slug)}}" class="more-btn">Tiếp tục đọc </a>
+                                        <a href="{{ route('blog.detail', $post->slug) }}"
+                                            class="title">{{ $post->title }}</a>
+                                        <p
+                                            style="width: 300px;
+                                        display: -webkit-box;
+                                        -webkit-box-orient: vertical;
+                                        -webkit-line-clamp: 3;
+                                        overflow: hidden;">
+                                            {{ $post->summary }}</p>
+                                        <a href="{{ route('blog.detail', $post->slug) }}" class="more-btn">Tiếp tục đọc
+                                        </a>
                                     </div>
                                 </div>
                                 <!-- End Single Blog  -->
@@ -58,7 +67,7 @@
                     <div class="main-sidebar">
                         <!-- Single Widget -->
                         <div class="single-widget search">
-                            <form class="form" method="GET" action="{{route('blog.search')}}">
+                            <form class="form" method="GET" action="{{ route('blog.search') }}">
                                 <input type="text" placeholder="Search Here..." name="search">
                                 <button class="button" type="sumbit"><i class="fa fa-search"></i></button>
                             </form>
@@ -68,18 +77,18 @@
                         <div class="single-widget category">
                             <h3 class="title">Blog Categories</h3>
                             <ul class="categor-list">
-                                @if(!empty($_GET['category']))
+                                @if (!empty($_GET['category']))
                                     @php
-                                        $filter_cats=explode(',',$_GET['category']);
+                                        $filter_cats = explode(',', $_GET['category']);
                                     @endphp
                                 @endif
-                            <form action="{{route('blog.filter')}}" method="POST">
+                                <form action="{{ route('blog.filter') }}" method="POST">
                                     @csrf
                                     {{-- {{count(Helper::postCategoryList())}} --}}
-                                    @foreach(Helper::postCategoryList('posts') as $cat)
-                                    <li>
-                                        <a href="{{route('blog.category',$cat->slug)}}">{{$cat->title}} </a>
-                                    </li>
+                                    @foreach (Helper::postCategoryList('posts') as $cat)
+                                        <li>
+                                            <a href="{{ route('blog.category', $cat->slug) }}">{{ $cat->title }} </a>
+                                        </li>
                                     @endforeach
                                 </form>
 
@@ -89,18 +98,19 @@
                         <!-- Single Widget -->
                         <div class="single-widget recent-post">
                             <h3 class="title">Recent post</h3>
-                            @foreach($recent_posts as $post)
+                            @foreach ($recent_posts as $post)
                                 <!-- Single Post -->
                                 <div class="single-post">
                                     <div class="image">
-                                        <img src="{{$post->photo}}" alt="{{$post->photo}}">
+                                        <img src="{{ $post->photo }}" alt="{{ $post->photo }}">
                                     </div>
                                     <div class="content">
-                                        <h5><a href="#">{{$post->title}}</a></h5>
+                                        <h5><a href="#">{{ $post->title }}</a></h5>
                                         <ul class="comment">
-                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>{{$post->created_at->format('d M, y')}}</li>
+                                            <li><i class="fa fa-calendar"
+                                                    aria-hidden="true"></i>{{ $post->created_at->format('d M, y') }}</li>
                                             <li><i class="fa fa-user" aria-hidden="true"></i>
-                                                {{$post->author_info->name ?? 'Anonymous'}}
+                                                {{ $post->author_info->name ?? 'Anonymous' }}
                                             </li>
                                         </ul>
                                     </div>
@@ -115,18 +125,18 @@
                         <div class="single-widget side-tags">
                             <h3 class="title">Tags</h3>
                             <ul class="tag">
-                                @if(!empty($_GET['tag']))
+                                @if (!empty($_GET['tag']))
                                     @php
-                                        $filter_tags=explode(',',$_GET['tag']);
+                                        $filter_tags = explode(',', $_GET['tag']);
                                     @endphp
                                 @endif
-                                <form action="{{route('blog.filter')}}" method="POST">
+                                <form action="{{ route('blog.filter') }}" method="POST">
                                     @csrf
-                                    @foreach(Helper::postTagList('posts') as $tag)
+                                    @foreach (Helper::postTagList('posts') as $tag)
                                         <li>
-                                            <li>
-                                                <a href="{{route('blog.tag',$tag->title)}}">{{$tag->title}} </a>
-                                            </li>
+                                        <li>
+                                            <a href="{{ route('blog.tag', $tag->title) }}">{{ $tag->title }} </a>
+                                        </li>
                                         </li>
                                     @endforeach
                                 </form>
@@ -134,7 +144,7 @@
                         </div>
                         <!--/ End Single Widget -->
                         <!-- Single Widget -->
-                       
+
                         <!--/ End Single Widget -->
                     </div>
                 </div>
@@ -145,9 +155,8 @@
 @endsection
 @push('styles')
     <style>
-        .pagination{
-            display:inline-flex;
+        .pagination {
+            display: inline-flex;
         }
     </style>
-
 @endpush

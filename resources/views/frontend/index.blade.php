@@ -15,12 +15,6 @@
                 @foreach ($banners as $key => $banner)
                     <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                         <img class="first-slide" src="{{ $banner->photo }}" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block text-left">
-                            <h1 class="wow fadeInDown">{{ $banner->title }}</h1>
-                            <p>{!! html_entity_decode($banner->description) !!}</p>
-                            <a class="btn btn-lg ws-btn wow fadeInUpBig" href="{{ route('product-grids') }}"
-                                role="button">Shop Now<i class="far fa-arrow-alt-circle-right"></i></i></a>
-                        </div>
                     </div>
                 @endforeach
             </div>
@@ -79,7 +73,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Sản phẩm hot</h2>
+                        <h2>Sản phẩm danh mục</h2>
                     </div>
                 </div>
             </div>
@@ -129,10 +123,9 @@
                                                     @if ($product->stock <= 0)
                                                         <span class="out-of-stock">Sale out</span>
                                                     @elseif($product->condition == 'new')
-                                                        <span class="new">New</span
-                                                        @elseif($product->condition == 'hot') <span
+                                                    <span class="new">New</span @elseif($product->condition == 'hot')
                                                             class="hot">Hot</span>
-                                                    @else
+                                                    @elseif($product->discount > 0)
                                                         <span class="price-dec">{{ $product->discount }}% Off</span>
                                                     @endif
 
@@ -159,12 +152,17 @@
                                                         href="{{ route('product-detail', $product->slug) }}">{{ $product->title }}</a>
                                                 </h3>
                                                 <div class="product-price">
-                                                    @php
-                                                        $after_discount = $product->price - ($product->price * $product->discount) / 100;
-                                                    @endphp
-                                                    <span>₫{{ number_format($after_discount, 0) }}</span>
-                                                    <del
-                                                        style="padding-left:4%;">₫{{ number_format($product->price, 0) }}</del>
+                                                    @if ($product->discount > 0)
+                                                        @php
+                                                            $after_discount = $product->price - ($product->price * $product->discount) / 100;
+                                                        @endphp
+                                                        <span>₫{{ number_format($after_discount, 0) }}</span>
+                                                        <del
+                                                            style="padding-left:4%;">₫{{ number_format($product->price, 0) }}</del>
+                                                    @else
+                                                        <span>₫{{ number_format($product->price, 0) }}</span>
+                                                    @endif
+
                                                 </div>
                                             </div>
                                         </div>
@@ -199,10 +197,9 @@
                                     $photo = explode(',', $data->photo);
                                 @endphp
                                 <img src="{{ $photo[0] }}" alt="{{ $photo[0] }}">
-                                <div class="content">
+                                <div class="content abc">
                                     <p>{{ $data->cat_info['title'] }}</p>
                                     <h3>{{ $data->title }} <br>Up to<span> {{ $data->discount }}%</span></h3>
-                                    <a href="{{ route('product-detail', $data->slug) }}">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -239,8 +236,7 @@
                                             @endphp
                                             <img class="default-img" src="{{ $photo[0] }}"
                                                 alt="{{ $photo[0] }}">
-                                            <img class="hover-img" src="{{ $photo[0] }}"
-                                                alt="{{ $photo[0] }}">
+                                            <img class="hover-img" src="{{ $photo[0] }}" alt="{{ $photo[0] }}">
                                             {{-- <span class="out-of-stock">Hot</span> --}}
                                         </a>
                                         <div class="button-head">
@@ -313,8 +309,8 @@
                                                     // dd($photo);
                                                 @endphp
                                                 <img src="{{ $photo[0] }}" alt="{{ $photo[0] }}">
-                                                <a href="{{ route('add-to-cart', $product->slug) }}"
-                                                    class="buy"><i class="fa fa-shopping-bag"></i></a>
+                                                <a href="{{ route('add-to-cart', $product->slug) }}" class="buy"><i
+                                                        class="fa fa-shopping-bag"></i></a>
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-6 col-12 no-padding">
@@ -537,8 +533,8 @@
                                                         </button>
                                                     </div>
                                                     <input type="hidden" name="slug" value="{{ $product->slug }}">
-                                                    <input type="text" name="quant[1]" class="input-number" data-min="1"
-                                                        data-max="1000" value="1">
+                                                    <input type="text" name="quant[1]" class="input-number"
+                                                        data-min="1" data-max="1000" value="1">
                                                     <div class="button plus">
                                                         <button type="button" class="btn btn-primary btn-number"
                                                             data-type="plus" data-field="quant[1]">
@@ -620,7 +616,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
     <script>
         /*==================================================================
-                [ Isotope ]*/
+                        [ Isotope ]*/
         var $topeContainer = $('.isotope-grid');
         var $filter = $('.filter-tope-group');
 
@@ -692,4 +688,9 @@
             return false
         }
     </script>
+    <style>
+        .abc {
+            margin-top: 150px;
+        }
+    </style>
 @endpush
