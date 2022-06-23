@@ -41,7 +41,7 @@ class FrontendController extends Controller
             ->with('posts', $posts)
             ->with('banners', $banners)
             ->with('product_lists', $products)
-            ->with('category_lists', $category);
+            ->with('category_lists', $category); 
     }
 
     public function aboutUs()

@@ -59,7 +59,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="price" class="col-form-label">Giá(NRS) <span class="text-danger">*</span></label>
+                    <label for="price" class="col-form-label">Giá <span class="text-danger">*</span></label>
                     <input id="price" type="number" name="price" placeholder="Enter price" value="{{ old('price') }}"
                         class="form-control">
                     @error('price')
@@ -78,11 +78,10 @@
                 <div class="form-group">
                     <label for="size">Size</label>
                     <select name="size[]" class="form-control selectpicker" multiple data-live-search="true">
-                        <option value="">--Select any size--</option>
-                        <option value="S">Small (S)</option>
-                        <option value="M">Medium (M)</option>
-                        <option value="L">Large (L)</option>
-                        <option value="XL">Extra Large (XL)</option>
+                        <option value="">--Chọn size--</option>
+                        <option value="Full">Full size</option>
+                        <option value="Mini">Chiết</option>
+                       
                     </select>
                 </div>
 

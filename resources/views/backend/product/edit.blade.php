@@ -67,7 +67,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="price" class="col-form-label">Giá(NRS) <span class="text-danger">*</span></label>
+                    <label for="price" class="col-form-label">Giá <span class="text-danger">*</span></label>
                     <input id="price" type="number" name="price" placeholder="Enter price" value="{{ $product->price }}"
                         class="form-control">
                     @error('price')
@@ -92,10 +92,9 @@
                                 $data = explode(',', $item->size);
                                 // dd($data);
                             @endphp
-                            <option value="S" @if (in_array('S', $data)) selected @endif>Small</option>
-                            <option value="M" @if (in_array('M', $data)) selected @endif>Medium</option>
-                            <option value="L" @if (in_array('L', $data)) selected @endif>Large</option>
-                            <option value="XL" @if (in_array('XL', $data)) selected @endif>Extra Large</option>
+                            <option value="Full" @if (in_array('Full', $data)) selected @endif>Full</option>
+                            <option value="Mini" @if (in_array('Mini', $data)) selected @endif>Mini</option>
+                            
                         @endforeach
                     </select>
                 </div>
