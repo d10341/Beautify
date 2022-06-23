@@ -79,7 +79,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title">
-                        <h2>Sản phẩm hot</h2>
+                        <h2>Sản phẩm danh mục</h2>
                     </div>
                 </div>
             </div>
@@ -321,7 +321,7 @@
                                             <div class="content">
                                                 <h4 class="title"><a href="#">{{ $product->title }}</a></h4>
                                                 <p class="price with-discount">
-                                                    ₫{{ number_format($product->discount, 0) }}
+                                                    ₫{{ number_format($product->price, 0) }}
                                                 </p>
                                             </div>
                                         </div>
