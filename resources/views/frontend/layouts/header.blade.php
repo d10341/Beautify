@@ -32,11 +32,16 @@
                             <li><i class="ti-location-pin"></i> <a href="{{ route('order.track') }}">Tra cứu đơn
                                     hàng</a></li>
                             {{-- <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li> --}}
-                            @auth
-                                <li><i class="ti-power-off"></i> <a href="{{ route('user.logout') }}">Đăng xuất</a></li>
+                            @auth 
+                                @if(Auth::user()->role=='admin')
+                                    <li><i class="ti-user"></i> <a href="{{route('admin')}}"  target="_blank">Dashboard</a></li>
+                                @else 
+                                    <li><i class="ti-user"></i> <a href="{{route('user')}}"  target="_blank">Quản lý đơn hàng</a></li>
+                                @endif
+                                <li><i class="ti-power-off"></i> <a href="{{route('user.logout')}}">Đăng xuâts</a></li>
+
                             @else
-                                <li><i class="ti-power-off"></i><a href="{{ route('login.form') }}">Đăng nhập /</a> <a
-                                        href="{{ route('register.form') }}">Đăng ký</a></li>
+                                <li><i class="ti-power-off"></i><a href="{{route('login.form')}}">Đăng nhập /</a> <a href="{{route('register.form')}}">Đăng ký</a></li>
                             @endauth
                         </ul>
                     </div>
