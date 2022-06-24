@@ -34,6 +34,7 @@ class FrontendController extends Controller
         $banners = Banner::where('status', 'active')->limit(3)->orderBy('id', 'DESC')->get();
         // return $banner;
         $products = Product::where('status', 'active')->orderBy('id', 'DESC')->limit(8)->get();
+        $products_hot = Product::where('status', 'active')->where('condition','hot')->orderBy('id', 'DESC')->limit(8)->get();
         $category = Category::where('status', 'active')->where('is_parent', 1)->orderBy('title', 'ASC')->get();
         // return $category;
         return view('frontend.index')
@@ -41,7 +42,8 @@ class FrontendController extends Controller
             ->with('posts', $posts)
             ->with('banners', $banners)
             ->with('product_lists', $products)
-            ->with('category_lists', $category); 
+            ->with('category_lists', $category)
+            ->with('products_hot', $products_hot); 
     }
 
     public function aboutUs()
@@ -70,7 +72,7 @@ class FrontendController extends Controller
             // dd($slug);
             $cat_ids = Category::select('id')->whereIn('slug', $slug)->pluck('id')->toArray();
             // dd($cat_ids);
-            $products->whereIn('cat_id', $cat_ids);
+            $products->whereIn('cat_id', $cat_ids)->paginate(6);
             // return $products;
         }
         if (!empty($_GET['brand'])) {
@@ -102,7 +104,7 @@ class FrontendController extends Controller
         if (!empty($_GET['show'])) {
             $products = $products->where('status', 'active')->paginate($_GET['show']);
         } else {
-            $products = $products->where('status', 'active')->paginate(9);
+            $products = $products->where('status', 'active')->paginate(15);
         }
         // Sort by name , price, category
 
@@ -118,7 +120,7 @@ class FrontendController extends Controller
             // dd($slug);
             $cat_ids = Category::select('id')->whereIn('slug', $slug)->pluck('id')->toArray();
             // dd($cat_ids);
-            $products->whereIn('cat_id', $cat_ids)->paginate;
+            $products->whereIn('cat_id', $cat_ids)->paginate(6);
             // return $products;
         }
         if (!empty($_GET['brand'])) {

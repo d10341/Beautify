@@ -11,7 +11,7 @@
                     <div class="bread-inner">
                         <ul class="bread-list">
                             <li><a href="index1.html">Home<i class="ti-arrow-right"></i></a></li>
-                            <li class="active"><a href="blog-single.html">Shop Grid</a></li>
+                            <li class="active"><a href="blog-single.html">Danh sách sản phẩm</a></li>
                         </ul>
                     </div>
                 </div>
@@ -147,9 +147,9 @@
                                 <div class="shop-top">
                                     <div class="shop-shorter">
                                         <div class="single-shorter">
-                                            <label>Show :</label>
+                                            <label>Lấy khoảng :</label>
                                             <select class="show" name="show" onchange="this.form.submit();">
-                                                <option value="">Default</option>
+                                                <option value="">Mặc định</option>
                                                 <option value="9" @if (!empty($_GET['show']) && $_GET['show'] == '9') selected @endif>09
                                                 </option>
                                                 <option value="15" @if (!empty($_GET['show']) && $_GET['show'] == '15') selected @endif>15
@@ -161,18 +161,18 @@
                                             </select>
                                         </div>
                                         <div class="single-shorter">
-                                            <label>Sort By :</label>
+                                            <label>Săp xếp theo :</label>
                                             <select class='sortBy' name='sortBy' onchange="this.form.submit();">
-                                                <option value="">Default</option>
+                                                <option value="">Mặc định</option>
                                                 <option value="title" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'title') selected @endif>
-                                                    Name
+                                                    Tên sản phẩm
                                                 </option>
                                                 <option value="price" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'price') selected @endif>
                                                     Giá</option>
                                                 <option value="category" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'category') selected @endif>
                                                     Danh mục</option>
                                                 <option value="brand" @if (!empty($_GET['sortBy']) && $_GET['sortBy'] == 'brand') selected @endif>
-                                                    Brand</option>
+                                                    Thương hiệu</option>
                                             </select>
                                         </div>
                                     </div>
@@ -238,7 +238,7 @@
                                     </div>
                                 @endforeach
                             @else
-                                <h4 class="text-warning" style="margin:100px auto;">There are no products.</h4>
+                                <h4 class="text-warning" style="margin:100px auto;">Không tìm thấy sản phẩm.</h4>
                             @endif
 
 
